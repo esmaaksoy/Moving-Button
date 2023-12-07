@@ -11,7 +11,7 @@ If you enter the information and save, you will encounter a card structure.<br>
 ## Tech/framework used
 
 <b>Built with</b> <br>
-<a href="#"><img src="https://react.dev/images/og-home.png" alt="react" width="40"/></a> 
+<a href="#"><img src="https://w7.pngwing.com/pngs/403/269/png-transparent-react-react-native-logos-brands-in-colors-icon-thumbnail.png" alt="react" width="40"/></a> 
 <a href="#"><img src="https://react-bootstrap.netlify.app/img/logo.svg" alt="bootstrap" width="40"/></a> 
 ## Description
 In the project directory, you can run:
