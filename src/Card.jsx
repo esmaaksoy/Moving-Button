@@ -4,16 +4,16 @@ import Card from 'react-bootstrap/Card';
 const Cards = ({ data }) => {
     const { email, username, firstname, lastname, image, password } = data;
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card className='mx-auto mt-2' style={{ width: '18rem' }}>
     <Card.Img variant="top" src={image} />
-    <Card.Body>
-      <Card.Title>{username}</Card.Title>
-      <Card.Title>{firstname} {lastname}</Card.Title>
-      <Card.Text>
+    
+      <Card.Title className='mx-auto'>{username}</Card.Title>
+      <Card.Title className='mx-auto'>{firstname} {lastname}</Card.Title>
+      <Card.Footer className='mx-auto'>
         {email}
-      </Card.Text>
+      </Card.Footer>
    
-    </Card.Body>
+   
   </Card>
   )
 }

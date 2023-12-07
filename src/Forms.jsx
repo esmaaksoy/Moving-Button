@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container";
 import { useState } from "react";
 import Cards from "./Card";
 const Forms = () => {
-
   const [data, setData] = useState({
     email: "",
     username: "",
@@ -14,37 +13,28 @@ const Forms = () => {
     password: "",
   });
   const [value, setValue] = useState(false);
-  const [mouse, setMouse] = useState()
+  const [mouse, setMouse] = useState();
+  const [cardValue, setCardValue] = useState(false);
   const { email, username, firstname, lastname, image, password } = data;
   const handleData = (e) => {
     setData({ ...data, [e.target.id]: e.target.value });
   };
-
   const hadleSubmit = (e) => {
     e.preventDefault();
     if (Object.values(data).every((value) => value.trim() !== "")) {
-      setValue(true);
+      setCardValue(true);
+    } 
+  };
+   const handleMouse =()=>{
+    if (Object.values(data).every((value) => value.trim() !== "")) {
+      setMouse(false)
     } else {
-      // Eğer bir veya daha fazla input değeri boş ise, kullanıcıyı uyar
-      alert("Lütfen tüm alanları doldurun.");
-     
+      setMouse(true)
     }
-  };
-   
- const handleVisible =()=>{
-    setValue((newValue) => !newValue)
- }
- const handleMouseEnter = () => {
-    setValue(true);
-  };
-
-  const handleMouseLeave = () => {
-    setValue(false);
-  };
- 
+   }
   return (
-    <Container className="mt-4 w-50">
-      <Form onSubmit={hadleSubmit}>
+    <Container className="mt-4 w-50 ">
+      <Form onSubmit={hadleSubmit} className="d-flex flex-column">
         <Form.Group className="mb-3">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -100,15 +90,14 @@ const Forms = () => {
               id="password"
          
             />
-            <Button variant="dark" onClick={handleVisible} >Show/Hidden</Button>
+            <Button variant="dark" onClick={()=>setValue(!value)} >Show/Hidden</Button>
           </div>
-        </Form.Group>
-
-        <Button variant="primary" type="submit" onMouseEnter={handleMouseEnter}  onMouseLeave={handleMouseLeave} className={value ? "submit" : ""}>
+        </Form.Group >
+        <Button variant="dark" type="submit" onMouseEnter={handleMouse} onMouseLeave ={()=>setMouse(false)} className={mouse ? "submit" : ""}>
           Submit
         </Button>
       </Form>
-      {value && <Cards data={data} />}
+      {cardValue && <Cards data={data} />}
     </Container>
   );
 };
